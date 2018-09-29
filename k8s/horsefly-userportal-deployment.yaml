@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: horsefly-userportal-deployment
+  labels:
+    app: horsefly-userportal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: horsefly-userportal
+  template:
+    metadata:
+      labels:
+        app: horsefly-userportal
+    spec:
+      containers:
+        - name: horsefly-userportal
+          image: vdigital/horsefly-userportal
+          ports:
+            - name: horsefly-userportal-port
+              containerPort: REPLACE-WITH-CONTAINER-PORT-NUMBER
